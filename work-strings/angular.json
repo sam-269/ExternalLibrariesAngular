@@ -159,6 +159,123 @@
           }
         }
       }
+    },
+    "work-string-example2": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/work-string-example2",
+      "sourceRoot": "projects/work-string-example2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/work-string-example2",
+            "index": "projects/work-string-example2/src/index.html",
+            "main": "projects/work-string-example2/src/main.ts",
+            "polyfills": "projects/work-string-example2/src/polyfills.ts",
+            "tsConfig": "projects/work-string-example2/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/work-string-example2/src/favicon.ico",
+              "projects/work-string-example2/src/assets"
+            ],
+            "styles": [
+              "projects/work-string-example2/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/work-string-example2/src/environments/environment.ts",
+                  "with": "projects/work-string-example2/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "work-string-example2:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "work-string-example2:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "work-string-example2:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/work-string-example2/src/test.ts",
+            "polyfills": "projects/work-string-example2/src/polyfills.ts",
+            "tsConfig": "projects/work-string-example2/tsconfig.spec.json",
+            "karmaConfig": "projects/work-string-example2/karma.conf.js",
+            "assets": [
+              "projects/work-string-example2/src/favicon.ico",
+              "projects/work-string-example2/src/assets"
+            ],
+            "styles": [
+              "projects/work-string-example2/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/work-string-example2/tsconfig.app.json",
+              "projects/work-string-example2/tsconfig.spec.json",
+              "projects/work-string-example2/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/work-string-example2/e2e/protractor.conf.js",
+            "devServerTarget": "work-string-example2:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "work-string-example2:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "work-strings"
 }

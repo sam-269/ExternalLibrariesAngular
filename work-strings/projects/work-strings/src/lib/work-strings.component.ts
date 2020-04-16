@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'sg-work-strings',
   template: `
     <p>
-      work-strings works!
+      data from the library
     </p>
   `,
   styles: []
